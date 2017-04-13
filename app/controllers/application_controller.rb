@@ -9,4 +9,10 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "youwillnevergetthis"
   end
 
+  get '/' do
+    @city = City.all.sample
+    @tips = @city.tips
+    erb :index
+  end
+
 end
