@@ -5,5 +5,9 @@ class CitiesController < ApplicationController
     erb :'/cities/index'
   end
 
-
+  get '/cities/:slug' do
+    @city = City.find_by_slug(params[:slug])
+    @tips = @city.tips
+    erb :'/cities/show'
+  end
 end
