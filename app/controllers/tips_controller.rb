@@ -14,7 +14,12 @@ class TipsController < ApplicationController
   end
 
   post '/tips' do
-
+    if !!params[:category] && !!params[:city] && params[:content] != ""
+      @tip = Tip.create(content: params[:content], city_id: params[:city], category: params[:category], votes: 1)
+      redirect to "/cities/#{@tip.city.slug}"
+    else
+      redirect to '/tips/new'
+    end
   end
 
 end
