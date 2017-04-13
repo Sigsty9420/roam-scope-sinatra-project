@@ -1,0 +1,20 @@
+<h2>Enter the details for your new city below</h2>
+<form method="POST" action="/cities/<%=@city.slug%>">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label>Name:</label>
+
+  <br></br>
+
+  <input type="text" name="name" id="name" value="<%=@city.name%>">
+
+  <br></br>
+  <label>Country:</label>
+
+  <br></br>
+
+  <input type="text" name="country" id="country" value="<%=@city.country%>">
+
+  <br></br>
+
+
+<input type="submit" value="Edit city">
