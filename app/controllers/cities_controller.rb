@@ -1,7 +1,7 @@
 class CitiesController < ApplicationController
 
   get '/cities' do
-    @cities = City.all.uniq.sort_by {|city| city[:name] }
+    @cities = City.all.sort_by {|city| city[:name] }
     erb :'/cities/index'
   end
 
