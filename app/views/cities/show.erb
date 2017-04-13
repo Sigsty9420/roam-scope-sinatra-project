@@ -5,5 +5,5 @@
 <h2>Tips:</h2>
 
 <% @tips.all.each do |tip| %>
-<h3><%=tip.id%> - "<%=tip.content%>" / Category: <%=tip.category.capitalize%> / Tip Votes: <%=tip.votes%> </h3>
+<p><%=tip.id%> - "<%=tip.content%>" / Category: <%=tip.category.capitalize%> / Tip Votes: <%=tip.votes%> / Submitted by : <%=tip.user.username.capitalize%> /</p>
 <% end %>

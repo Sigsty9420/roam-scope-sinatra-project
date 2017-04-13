@@ -7,6 +7,7 @@ class TipsController < ApplicationController
       Tip.all.each do |tip|
         @categories << tip.category
       end
+      @categories = @categories.uniqse
       erb :"/tips/new"
     else
       redirect "/login"
@@ -15,7 +16,7 @@ class TipsController < ApplicationController
 
   post '/tips' do
     if !!params[:category] && !!params[:city] && params[:content] != ""
-      @tip = Tip.create(content: params[:content], city_id: params[:city], category: params[:category], votes: 1)
+      @tip = Tip.create(content: params[:content], city_id: params[:city], user_id: session[:user_id], category: params[:category], votes: 1)
       redirect to "/cities/#{@tip.city.slug}"
     else
       redirect to '/tips/new'
