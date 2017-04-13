@@ -5,8 +5,8 @@
   </head>
 
   <body>
-    <% if !!session[:id] %>
-      <p align="right">User: <%=session[:username]%></a> / <a href="/logout">Logout</a></p>
+    <% if !!session[:username] %>
+      <p align="right">User: <%=session[:username].capitalize%></a> / <a href="/logout">Logout</a></p>
     <% else %>
       <p align="right"><a href="/login">Login</a> / <a href="/signup">Signup</a></p>
     <% end %>
