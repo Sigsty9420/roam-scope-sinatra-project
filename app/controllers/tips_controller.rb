@@ -7,7 +7,7 @@ class TipsController < ApplicationController
       Tip.all.each do |tip|
         @categories << tip.category
       end
-      @categories = @categories.uniqse
+      @categories = @categories.uniq
       erb :"/tips/new"
     else
       redirect "/login"
