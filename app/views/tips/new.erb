@@ -4,8 +4,18 @@
   <label>City:</label>
 
   <br></br>
+  <% @cities.each do |city| %>
+  <input type="radio" name="city" value="<%=city.id%>" id="<%=city.name%>"><%=city.name%></input>
+  <% end %>
+  <br></br>
 
-  <input type="text" name="city" id="city">
+  <label>Category:</label>
+
+  <br></br>
+
+  <% @categories.each do |category| %>
+  <input type="radio" name="category" value="<%=category%>" id="<%=category%>"><%=category.capitalize%></input>
+  <% end %>
 
   <br></br>
 
@@ -14,14 +24,6 @@
   <br></br>
 
   <input type="text" name="content" id="content">
-
-  <br></br>
-
-  <label>Category:</label>
-
-  <br></br>
-
-  <input type="text" name="category" id="category">
 
   <br></br>
 
