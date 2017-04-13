@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
     if @user.save && @user.username != "" && @user.email != ""
       session[:user_id] = @user.id
+      session[:username] = @user.username
       redirect "/"
     else
       redirect "/signup"
