@@ -10,7 +10,7 @@ configure :development do
 end
 
 configure :production do
-  db =  URI.parse(ENV['DATABASE_URL'] || 'postgres://nnpxiyorkzznok:e44c22b6b8ae7042470089d4a5cce41a2827224764df355d330f55802d45107f@ec2-54-225-182-108.compute-1.amazonaws.com:5432/d7ku4eunhqs2ck')
+  db =  URI.parse(ENV['DATABASE_URL'] || 'postgres://onmnflldskcbmn:73057b0de4c6beac27b03b64de29fd7ad530d8a75efe872cce17697dc34f10a3@ec2-54-235-153-124.compute-1.amazonaws.com:5432/d9cfm2gjf6a3ne')
 #  db =  ''
 
   ActiveRecord::Base.establish_connection(
