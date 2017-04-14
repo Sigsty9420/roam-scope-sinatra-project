@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+    <style>
+        body {
+          padding-top: 30px;
+          padding-right: 30px;
+          padding-left: 30px;
+          background-image:url('/img/grey.png');
+        }
+    </style>
+    <title>Roam Scope</title>
   </head>
 
   <body>
@@ -11,5 +21,7 @@
       <p align="right"><a href="/login">Login</a> / <a href="/signup">Signup</a></p>
     <% end %>
     <%= yield %>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
