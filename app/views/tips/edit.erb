@@ -1,0 +1,25 @@
+<div class="container">
+<h2>Edit your tip below</h2>
+<form method="POST" action="/tips/<%=@tip.id%>">
+<input id="hidden" type="hidden" name="_method" value="patch">
+  <h3>City:</h3>
+
+  <% @cities.each do |city| %>
+  <h4><input type="radio" name="city" value="<%=@tip.city.id%>" id="<%=city.name%>"> <%=city.name%> </input></h4>
+  <% end %>
+
+  <h3>Category:</h3>
+
+  <% @categories.each do |category| %>
+  <h4><input type="radio" name="category" value="<%=category%>" id="<%=category%>"> <%=category.capitalize%> </input></h4>
+  <% end %>
+
+  <h3>Content:</h3>
+
+  <input type="text" name="content" id="content" value="@tip.content">
+
+  <br></br>
+
+
+<input type="submit" value="Submit new tip">
+</div>

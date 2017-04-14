@@ -40,4 +40,28 @@ class TipsController < ApplicationController
     end
   end
 
+  get '/tips/:id/edit' do
+    if logged_in?
+      @tip = Tip.find(params[:id])
+      @cities = City.all
+      @categories = []
+      Tip.all.each do |tip|
+        @categories << tip.category
+      end
+      @categories = @categories.uniq
+      if @tip.user_id != session[:user_id]
+        erb :'tips/edit'
+      else
+        redirect "/cities/#{@city.slug}"
+      end
+    else
+      redirect "/login"
+    end
+  end
+
+  patch '/tips/:id' do
+    binding.pry
+    @tip = Tip.find(params[:id])
+    @tip.update(content: params[:content], city_id: params[:city], category: params[:category], votes: 1)
+  end
 end
