@@ -15,7 +15,6 @@ class TipsController < ApplicationController
   end
 
   post '/tips' do
-    binding.pry
     if !!params[:category] && !!params[:city] && params[:content] != ""
       @tip = Tip.create(content: params[:content], city_id: params[:city], user_id: session[:user_id], category: params[:category], votes: 1)
       redirect to "/cities/#{@tip.city.slug}"
@@ -65,4 +64,19 @@ class TipsController < ApplicationController
     @tip.update(content: params[:content], city_id: params[:city], category: params[:category], votes: 1)
     redirect "/cities/#{@tip.city.slug}"
   end
+
+  get '/tips/:id/delete' do
+    if logged_in?
+      @tip = Tip.find(params[:id])
+      if @tip.user_id.to_i == session[:user_id]
+        @tip.destroy
+        redirect "/cities/#{@tip.city.slug}"
+      else
+        redirect "/cities/#{@tip.city.slug}"
+      end
+    else
+      redirect "/login"
+    end
+  end
+
 end
