@@ -5,18 +5,18 @@
   <h3>City:</h3>
 
   <% @cities.each do |city| %>
-  <h4><input type="radio" name="city" value="<%=@tip.city.id%>" id="<%=city.name%>"> <%=city.name%> </input></h4>
+  <h4><input type="radio" name="city" value="<%=city.id%>" id="<%=city.name%>" <%='checked' if @tip.city.id == city.id %>> <%=city.name%> </input></h4>
   <% end %>
 
   <h3>Category:</h3>
 
   <% @categories.each do |category| %>
-  <h4><input type="radio" name="category" value="<%=category%>" id="<%=category%>"> <%=category.capitalize%> </input></h4>
+  <h4><input type="radio" name="category" value="<%=category%>" id="<%=category%>" <%='checked' if @tip.category == category %>> <%=category.capitalize%> </input></h4>
   <% end %>
 
   <h3>Content:</h3>
 
-  <input type="text" name="content" id="content" value="@tip.content">
+  <input type="text" name="content" id="content" value="<%=@tip.content%>">
 
   <br></br>
 

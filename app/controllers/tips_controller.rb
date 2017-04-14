@@ -28,7 +28,7 @@ class TipsController < ApplicationController
     if logged_in?
       @tip = Tip.find(params[:id])
       @city = City.find(@tip.city_id)
-      if @tip.user_id != session[:user_id]
+      if @tip.user_id.to_i == session[:user_id]
         @tip.votes += 1
         @tip.save
         redirect "/cities/#{@city.slug}"
@@ -49,10 +49,11 @@ class TipsController < ApplicationController
         @categories << tip.category
       end
       @categories = @categories.uniq
-      if @tip.user_id != session[:user_id]
+
+      if @tip.user_id.to_i == session[:user_id]
         erb :'tips/edit'
       else
-        redirect "/cities/#{@city.slug}"
+        redirect "/cities/#{@tip.city.slug}"
       end
     else
       redirect "/login"
@@ -60,8 +61,8 @@ class TipsController < ApplicationController
   end
 
   patch '/tips/:id' do
-    binding.pry
     @tip = Tip.find(params[:id])
     @tip.update(content: params[:content], city_id: params[:city], category: params[:category], votes: 1)
+    redirect "/cities/#{@tip.city.slug}"
   end
 end
