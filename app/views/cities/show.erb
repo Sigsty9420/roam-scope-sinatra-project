@@ -4,6 +4,6 @@
 <h3>Tips</h3>
 
 <% @tips.all.each_with_index do |tip, index| %>
-<p><%=index+1%> - "<%=tip.content%>" / Category: <%=tip.category.capitalize%> / Tip Votes: <%=tip.votes%> / Submitted by : <%=tip.user.username.capitalize%> /</p>
+<p><%=index+1%> - "<%=tip.content%>" / Category: <%=tip.category.capitalize%> / Votes: <%=tip.votes%> <a href='/tips/<%=tip.id%>/vote'>+</a>  / Submitted by : <%=tip.user.username.capitalize%> /</p>
 <% end %>
 </div>

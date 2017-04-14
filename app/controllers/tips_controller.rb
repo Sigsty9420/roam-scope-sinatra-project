@@ -24,4 +24,20 @@ class TipsController < ApplicationController
     end
   end
 
+  get '/tips/:id/vote' do
+    if logged_in?
+      @tip = Tip.find(params[:id])
+      @city = City.find(@tip.city_id)
+      if @tip.user_id != session[:user_id]
+        @tip.votes += 1
+        @tip.save
+        redirect "/cities/#{@city.slug}"
+      else
+        redirect "/cities/#{@city.slug}"
+      end
+    else
+      redirect "/login"
+    end
+  end
+
 end
