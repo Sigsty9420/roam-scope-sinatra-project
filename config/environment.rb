@@ -11,7 +11,7 @@ end
 
 configure :production do
   db =  URI.parse(ENV['DATABASE_URL'] || 'postgres_database_url')
-#  db =  'postgres://localhost/topofthemorning_development'
+  db =  'postgres://still-beyond-16384.herokuapp.com/'
 
   ActiveRecord::Base.establish_connection(
     :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
