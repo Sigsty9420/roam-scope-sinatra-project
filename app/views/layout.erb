@@ -26,7 +26,7 @@
           <li><a href="/cities/new">Add City</a></li>
           <li><a href="/tips/new">Add Tip</a></li>
           <% if !!session[:username] %>
-            <li align="right"><a>User: <%=session[:username].capitalize%></a></li>
+            <li align="right"><a><strong>User: <%=session[:username].capitalize%></strong></a></li>
             <li align="right"><a href="/logout">Logout</a></li>
           <% else %>
             <li align="right"><a href="/login">Login</a></li>
