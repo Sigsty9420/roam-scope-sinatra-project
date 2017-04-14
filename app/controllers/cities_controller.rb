@@ -12,6 +12,7 @@ class CitiesController < ApplicationController
   get '/cities/:slug' do
     @city = City.find_by_slug(params[:slug])
     @tips = @city.tips
+    @tips = @tips.sort_by {|tip| tip[:votes]}.reverse
     erb :'/cities/show'
   end
 
