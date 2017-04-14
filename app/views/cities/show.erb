@@ -2,8 +2,11 @@
 <h2><%=@city.name %></h2>
 
 <h3>Tips</h3>
-
-<% @tips.each_with_index do |tip, index| %>
-<p><%=index+1%> - "<%=tip.content%>" / Category: <%=tip.category.capitalize%> / Votes: <%=tip.votes%> <a href='/tips/<%=tip.id%>/vote'>+</a>  / Submitted by : <%=tip.user.username.capitalize%> / <% if session[:user_id] == tip.user.id.to_i %> <a href="/tips/<%=tip.id%>/edit">Edit Tip</a> <% end %></p>
+<% if @tips.count > 0 %>
+  <% @tips.each_with_index do |tip, index| %>
+    <p><%=index+1%> - "<%=tip.content%>" / Category: <%=tip.category.capitalize%> / Votes: <%=tip.votes%> <a href='/tips/<%=tip.id%>/vote'>+</a>  / Submitted by : <%=tip.user.username.capitalize%> / <% if session[:user_id] == tip.user.id.to_i %> <a href="/tips/<%=tip.id%>/edit">Edit Tip</a> / <a href="/tips/<%=tip.id%>/delete">Delete Tip</a><% end %></p>
+  <% end %>
+<% else %>
+  <h3>There aren't any tips for this yet. <a href="/tips/new">Add the first one.</a></h3>
 <% end %>
 </div>
