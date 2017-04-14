@@ -1,4 +1,6 @@
+<div class="container">
 <h2>Please select a city from the following list:</h2>
 <% @cities.each do |city| %>
 <h3><a href="/cities/<%=city.slug%>"> <%= city.name %></h3>
 <% end %>
+</div>

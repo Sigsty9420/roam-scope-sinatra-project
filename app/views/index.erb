@@ -1,9 +1,9 @@
-<h1>Welcome to Roam Scope</h1>
+<div class="container">
+<h2>City: <%=@city.name %></h2>
 
-<h2>Current city: <%=@city.name %> - <a href="/cities">Choose other city</a> - <a href="/cities/new">Create new city</a></h2>
-
-<h2>Tips:</h2>
+<h3>Tips</h3>
 
 <% @tips.all.each do |tip| %>
-<h3><%=tip.id%> - "<%=tip.content%>" / Category: <%=tip.category.capitalize%> / Votes: <%=tip.votes%> / Submitted by : <%=tip.user.username.capitalize%> /</h3>
+<p><%=tip.id%> - "<%=tip.content%>" / Category: <%=tip.category.capitalize%> / Votes: <%=tip.votes%> / Submitted by : <%=tip.user.username.capitalize%> /</p>
 <% end %>
+</div>

@@ -1,31 +1,25 @@
+<div class="container">
 <h2>Enter the details for your new tip below</h2>
 <form method="POST" action="/tips">
 
-  <label>City:</label>
+  <h3>City:</h3>
 
-  <br></br>
   <% @cities.each do |city| %>
-  <input type="radio" name="city" value="<%=city.id%>" id="<%=city.name%>"><%=city.name%></input>
+  <h4><input type="radio" name="city" value="<%=city.id%>" id="<%=city.name%>"> <%=city.name%> </input></h4>
   <% end %>
-  <br></br>
 
-  <label>Category:</label>
-
-  <br></br>
+  <h3>Category:</h3>
 
   <% @categories.each do |category| %>
-  <input type="radio" name="category" value="<%=category%>" id="<%=category%>"><%=category.capitalize%></input>
+  <h4><input type="radio" name="category" value="<%=category%>" id="<%=category%>"> <%=category.capitalize%> </input></h4>
   <% end %>
 
-  <br></br>
+  <h3>Content:</h3>
 
-  <label>Content:</label>
-
-  <br></br>
-
-  <input type="text" name="content" id="content">
+  <input type="text" name="content" id="content" width=100px>
 
   <br></br>
 
 
 <input type="submit" value="Submit new tip">
+</div>
