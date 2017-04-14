@@ -11,7 +11,7 @@ end
 
 configure :production do
   db =  URI.parse(ENV['DATABASE_URL'] || 'postgres_database_url')
-  db =  'postgres://yryiiwfaozdlsr:79c1d4b8dd0b1b0c8118d4bf1bddd8a8e06452d5a836c5faa4916d82069bdb5c@ec2-54-225-182-108.compute-1.amazonaws.com:5432/da6hn1dtao4plk'
+  db =  'postgres://nnpxiyorkzznok:e44c22b6b8ae7042470089d4a5cce41a2827224764df355d330f55802d45107f@ec2-54-225-182-108.compute-1.amazonaws.com:5432/d7ku4eunhqs2ck'
 
   ActiveRecord::Base.establish_connection(
     :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
