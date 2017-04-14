@@ -5,7 +5,7 @@
     <link href="/css/bootstrap-responsive.css" rel="stylesheet">
     <style>
         body {
-          padding-top: 30px;
+          padding-top: 60px;
           padding-right: 30px;
           padding-left: 30px;
           background-image:url('/img/grey.png');
@@ -15,11 +15,30 @@
   </head>
 
   <body>
-    <% if !!session[:username] %>
-      <p align="right">User: <%=session[:username].capitalize%></a> / <a href="/logout">Logout</a></p>
-    <% else %>
-      <p align="right"><a href="/login">Login</a> / <a href="/signup">Signup</a></p>
-    <% end %>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+
+      <a class="brand" href="/">Rome Scope</a>
+      <div class="nav-collapse">
+        <ul class="nav nav">
+
+          <li><a href="/cities">Cities</a></li>
+          <li><a href="/cities/new">Add City</a></li>
+          <li><a href="/tips/new">Add Tip</a></li>
+          <% if !!session[:username] %>
+            <li align="right"><a>User: <%=session[:username].capitalize%></a></li>
+            <li align="right"><a href="/logout">Logout</a></li>
+          <% else %>
+            <li align="right"><a href="/login">Login</a></li>
+            <li align="right"> <a href="/signup">Signup</a></li>
+          <% end %>
+        </ul>
+      </div><!-- /.nav-collapse -->
+    </div><!-- /.container -->
+  </div><!-- /.navbar-inner -->
+</div><!-- /.navbar -->
     <%= yield %>
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
