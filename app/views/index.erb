@@ -1,9 +1,13 @@
 <div class="container">
-<h2>City: <%=@city.name %></h2>
-
-<h3>Tips</h3>
-
-<% @tips.all.each do |tip| %>
-<p><%=tip.id%> - "<%=tip.content%>" / Category: <%=tip.category.capitalize%> / Votes: <%=tip.votes%> / Submitted by : <%=tip.user.username.capitalize%> /</p>
-<% end %>
+<h2>Welcome to Roam Scope</h2>
+</br>
+<h4>Arriving alone in a new city can be hard, unless you know a local who can easily tell you what you need to know.</h4>
+<h4>Roam Scope is an attempt to make a system where the insights of locals can be captured and curated.</h4>
+</br>
+<h2>To get started:</h2>
+<ul>
+  <h3><li><h3><a href="/signup">Signup</a></li></h3>
+  <h3><li><h3><a href="/login">Login</a></li></h3>
+  <h3><li><h3><a href="/cities">Choose a city</a></li></h3>
+</ul>
 </div>
