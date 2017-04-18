@@ -2,15 +2,28 @@
   <% if flash.has?(:message) %>
     <h3 style="color:#F00"><%= flash[:message] %></h3>
   <% end %>
-<h2>Welcome to Roam Scope</h2>
+<% if session[:user_id] %>
+  <h2>Welcome to Roam Scope <%=session[:username].capitalize%></h2>
+<% else %>
+  <h2>Welcome to Roam Scope</h2>
+<% end %>
 </br>
 <h4>Arriving alone in a new city can be hard, unless you know a local who can easily tell you what you need to know.</h4>
 <h4>Roam Scope is an attempt to make a system where the insights of locals can be captured and curated.</h4>
 </br>
+<% if session[:user_id] %>
 <h2>To get started:</h2>
 <ul>
+  <h3><li><h3><a href="/cities">Choose a city</a></li></h3>
+  <h3><li><h3><a href="/cities/new">Add a city</a></li></h3>
+  <h3><li><h3><a href="/tips/new">Add a tip</a></li></h3>
+</ul>
+<% else %>
+<ul>
+<h2>To get started:</h2>
   <h3><li><h3><a href="/signup">Signup</a></li></h3>
   <h3><li><h3><a href="/login">Login</a></li></h3>
   <h3><li><h3><a href="/cities">Choose a city</a></li></h3>
 </ul>
+<% end %>
 </div>
