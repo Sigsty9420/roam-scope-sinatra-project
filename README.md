@@ -15,7 +15,7 @@ Do the following:
 5. Run "shotgun" to start a local server
 6. View the server here: [http://127.0.0.1:9393/](http://127.0.0.1:9393/)
 
-Alternatively, you can see if Roam Scope is still deployed on Heroku at the link below:
+Alternatively, you can see if Roam Scope is still deployed on Heroku: 
 [Roam Scope](https://roam-scope.herokuapp.com/)
 
 ## Contributing
