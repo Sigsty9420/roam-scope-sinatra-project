@@ -1,3 +1,6 @@
+<% if flash.has?(:message) %>
+  <h3 style="color:#F00"><%= flash[:message] %></h3>
+<% end %>
 <div class="container">
 <h2><%=@city.name %></h2>
 

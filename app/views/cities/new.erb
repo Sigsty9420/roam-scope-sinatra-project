@@ -1,3 +1,6 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
 <div class="container">
 <h2>Enter the details for a new city below</h2>
 <form method="POST" action="/cities">

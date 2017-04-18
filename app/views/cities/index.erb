@@ -1,4 +1,8 @@
+
 <div class="container">
+  <% if flash.has?(:message) %>
+    <h3 style="color:#F00"><%= flash[:message] %></h3>
+  <% end %>
 <h2>Please select a city from the following list:</h2>
 <% @cities.each do |city| %>
 <h3><a href="/cities/<%=city.slug%>"> <%= city.name %></h3>
