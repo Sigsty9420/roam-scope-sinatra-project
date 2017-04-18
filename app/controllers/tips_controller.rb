@@ -1,18 +1,14 @@
 class TipsController < ApplicationController
 
   get '/tips/new' do
-    if logged_in?
-      @cities = City.all
-      @categories = []
-      Tip.all.each do |tip|
-        @categories << tip.category
-      end
-      @categories = @categories.uniq
-      erb :"/tips/new"
-    else
-      flash[:message] = "You need to login first."
-      redirect "/login"
+    check_for_authenticated_user!
+    @cities = City.all
+    @categories = []
+    Tip.all.each do |tip|
+      @categories << tip.category
     end
+    @categories = @categories.uniq
+    erb :"/tips/new"
   end
 
   post '/tips' do
@@ -26,42 +22,34 @@ class TipsController < ApplicationController
   end
 
   get '/tips/:id/vote' do
-    if logged_in?
-      @tip = Tip.find(params[:id])
-      @city = City.find(@tip.city_id)
-      if @tip.user_id.to_i != session[:user_id]
-        @tip.votes += 1
-        @tip.save
-        redirect "/cities/#{@city.slug}"
-      else
-        flash[:message] = "Error: You can't upvote your own tips."
-        redirect "/cities/#{@city.slug}"
-      end
+    check_for_authenticated_user!
+    @tip = Tip.find(params[:id])
+    @city = City.find(@tip.city_id)
+    if @tip.user_id.to_i != session[:user_id]
+      @tip.votes += 1
+      @tip.save
+      redirect "/cities/#{@city.slug}"
     else
-      flash[:message] = "You need to login first."
-      redirect "/login"
+      flash[:message] = "Error: You can't upvote your own tips."
+      redirect "/cities/#{@city.slug}"
     end
   end
 
   get '/tips/:id/edit' do
-    if logged_in?
-      @tip = Tip.find(params[:id])
-      @cities = City.all
-      @categories = []
-      Tip.all.each do |tip|
-        @categories << tip.category
-      end
-      @categories = @categories.uniq
+    check_for_authenticated_user!
+    @tip = Tip.find(params[:id])
+    @cities = City.all
+    @categories = []
+    Tip.all.each do |tip|
+      @categories << tip.category
+    end
+    @categories = @categories.uniq
 
-      if @tip.user_id.to_i == session[:user_id]
-        erb :'tips/edit'
-      else
-        flash[:message] = "Error: You can't edit other people's tips."
-        redirect "/cities/#{@tip.city.slug}"
-      end
+    if @tip.user_id.to_i == session[:user_id]
+      erb :'tips/edit'
     else
-      flash[:message] = "You need to login first."
-      redirect "/login"
+      flash[:message] = "Error: You can't edit other people's tips."
+      redirect "/cities/#{@tip.city.slug}"
     end
   end
 
@@ -72,18 +60,14 @@ class TipsController < ApplicationController
   end
 
   get '/tips/:id/delete' do
-    if logged_in?
-      @tip = Tip.find(params[:id])
-      if @tip.user_id.to_i == session[:user_id]
-        @tip.destroy
-        redirect "/cities/#{@tip.city.slug}"
-      else
-        flash[:message] = "Error: You can't delete other people's tips."
-        redirect "/cities/#{@tip.city.slug}"
-      end
+    check_for_authenticated_user!
+    @tip = Tip.find(params[:id])
+    if @tip.user_id.to_i == session[:user_id]
+      @tip.destroy
+      redirect "/cities/#{@tip.city.slug}"
     else
-      flash[:message] = "You need to login first."
-      redirect "/login"
+      flash[:message] = "Error: You can't delete other people's tips."
+      redirect "/cities/#{@tip.city.slug}"
     end
   end
 

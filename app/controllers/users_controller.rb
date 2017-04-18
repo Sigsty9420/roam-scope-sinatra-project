@@ -13,12 +13,16 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    @user = User.create(username: params[:username], email: params[:email] , password: params[:password])
 
-    if @user.save && @user.username != "" && @user.email != ""
-      session[:user_id] = @user.id
-      session[:username] = @user.username
-      redirect "/"
+    if !User.find_by(username: params[:username]) && !User.find_by(email: params[:email])
+      @user = User.new(username: params[:username], email: params[:email] , password: params[:password])
+      if @user.username != "" && @user.email != "" && @user.save
+        session[:user_id] = @user.id
+        session[:username] = @user.username
+        redirect "/"
+      else
+        redirect "/signup"
+      end
     else
       redirect "/signup"
     end

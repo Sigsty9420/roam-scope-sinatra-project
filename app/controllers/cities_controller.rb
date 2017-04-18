@@ -7,12 +7,8 @@ class CitiesController < ApplicationController
   end
 
   get '/cities/new' do
-    if logged_in?
-      erb :"/cities/new"
-    else
-      flash[:message] = "You need to login first."
-      redirect "/login"
-    end
+    check_for_authenticated_user!
+    erb :"/cities/new"
   end
 
   get '/cities/:slug' do
@@ -37,13 +33,9 @@ class CitiesController < ApplicationController
   end
 
   get '/cities/:slug/edit' do
-    if logged_in?
-      @city = City.find_by_slug(params[:slug])
-      erb :'/cities/edit'
-    else
-      flash[:message] = "You need to login first."
-      redirect "/login"
-    end
+    check_for_authenticated_user!
+    @city = City.find_by_slug(params[:slug])
+    erb :'/cities/edit'
   end
 
   patch '/cities/:slug' do
