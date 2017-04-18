@@ -13,6 +13,19 @@ Do the following:
 3 Run "rake db:migrate" to migrate the databases.
 4 Run "rake db:seed" to seed the database with initial data. This is necessary to establish categories.
 5 Run "shotgun" to start a local server
-6 View the server here: [http://127.0.0.1:9393/](http://127.0.0.1:9393/) 
+6 View the server here: [http://127.0.0.1:9393/](http://127.0.0.1:9393/)
 
-Alternatively, you can see if Roam Scope is still deployed on Heroku over here:  [Roam Scope](https://roam-scope.herokuapp.com/)
+Alternatively, you can see if Roam Scope is still deployed on Heroku at the link below: 
+[Roam Scope](https://roam-scope.herokuapp.com/)
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at
+[https://github.com/bortch89/roam-scope-sinatra-project/issues](https://github.com/bortch89/roam-scope-sinatra-project/issues).
+Please read the [Contributing Guide](./CONTRIBUTING.md).  This project is
+intended to be a safe, welcoming space for collaboration, and contributors are
+expected to adhere to the [Code of Conduct](./CODE_OF_CONDUCT.md).
+
+## License
+
+Roam Scope is released on the [MIT License](./LICENSE).
