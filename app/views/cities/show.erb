@@ -1,7 +1,8 @@
-<% if flash.has?(:message) %>
-  <h3 style="color:#F00"><%= flash[:message] %></h3>
-<% end %>
+
 <div class="container">
+  <% if flash.has?(:message) %>
+    <h3 style="color:#F00"><%= flash[:message] %></h3>
+  <% end %>
 <h2><%=@city.name %></h2>
 
 <h3>Tips</h3>

@@ -1,4 +1,7 @@
 <div class="container">
+  <% if flash.has?(:message) %>
+    <h3 style="color:#F00"><%= flash[:message] %></h3>
+  <% end %>
 <h1>Create your new Roam Scope account below</h1>
 
 <form action="/signup" method="POST">

@@ -1,4 +1,7 @@
 <div class="container">
+  <% if flash.has?(:message) %>
+    <h3 style="color:#F00"><%= flash[:message] %></h3>
+  <% end %>
 <h2>Enter the details for your new tip below</h2>
 <form method="POST" action="/tips">
 

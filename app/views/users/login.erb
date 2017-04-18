@@ -1,4 +1,7 @@
 <div class="container">
+  <% if flash.has?(:message) %>
+    <h3 style="color:#F00"><%= flash[:message] %></h3>
+  <% end %>
 <h2>Login below</h2>
 
 <form action="/login" method="POST">

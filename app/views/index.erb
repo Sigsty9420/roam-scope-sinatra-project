@@ -1,4 +1,7 @@
 <div class="container">
+  <% if flash.has?(:message) %>
+    <h3 style="color:#F00"><%= flash[:message] %></h3>
+  <% end %>
 <h2>Welcome to Roam Scope</h2>
 </br>
 <h4>Arriving alone in a new city can be hard, unless you know a local who can easily tell you what you need to know.</h4>

@@ -10,6 +10,7 @@ class TipsController < ApplicationController
       @categories = @categories.uniq
       erb :"/tips/new"
     else
+      flash[:message] = "You need to login first."
       redirect "/login"
     end
   end
@@ -19,6 +20,7 @@ class TipsController < ApplicationController
       @tip = Tip.create(content: params[:content], city_id: params[:city], user_id: session[:user_id], category: params[:category], votes: 1)
       redirect to "/cities/#{@tip.city.slug}"
     else
+      flash[:message] = "Error: Invalid tip entry. Please make sure all fields are filled in correctly."
       redirect to '/tips/new'
     end
   end
@@ -32,9 +34,11 @@ class TipsController < ApplicationController
         @tip.save
         redirect "/cities/#{@city.slug}"
       else
+        flash[:message] = "Error: You can't upvote your own tips."
         redirect "/cities/#{@city.slug}"
       end
     else
+      flash[:message] = "You need to login first."
       redirect "/login"
     end
   end
@@ -52,9 +56,11 @@ class TipsController < ApplicationController
       if @tip.user_id.to_i == session[:user_id]
         erb :'tips/edit'
       else
+        flash[:message] = "Error: You can't edit other people's tips."
         redirect "/cities/#{@tip.city.slug}"
       end
     else
+      flash[:message] = "You need to login first."
       redirect "/login"
     end
   end
@@ -72,9 +78,11 @@ class TipsController < ApplicationController
         @tip.destroy
         redirect "/cities/#{@tip.city.slug}"
       else
+        flash[:message] = "Error: You can't delete other people's tips."
         redirect "/cities/#{@tip.city.slug}"
       end
     else
+      flash[:message] = "You need to login first."
       redirect "/login"
     end
   end
