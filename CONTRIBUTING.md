@@ -6,9 +6,9 @@ Contributions to the Roam Scope project are welcomed!
 If you find an issue with the Roam Scope app, please check GitHub issues for an exiting issue submission at [https://github.com/bortch89/roam-scope-sinatra-project/issues](https://github.com/bortch89/roam-scope-sinatra-project/issues).  If no existing issue is found, please submit a new issue.  Please provide a clear explanation of the issue you found with any relevant background information, for example what steps will reproduce the issue.
 
 ## Pull Requests
-If you would like to contribute code to the Photo Vistas project, please submit a [Pull Request](https://github.com/bortch89/roam-scope-sinatra-project/pulls).  To submit a pull request:
+If you would like to contribute code to the Rome Scope project, please submit a [Pull Request](https://github.com/bortch89/roam-scope-sinatra-project/pulls).  To submit a pull request:
 
-* Fork the Photo Vistas GitHub repository.
+* Fork the Roam Scope GitHub repository.
 * Make changes on your fork.  Please provide descriptive comments in your commit messages.  Please review [this document](http://chris.beams.io/posts/git-commit/) for more information about structuring your commit messages.
 * Open a new pull request.
 
